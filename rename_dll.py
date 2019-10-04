@@ -17,7 +17,7 @@ process = subprocess.Popen(['dumpbin', '/EXPORTS', args.inputdll], stdout=subpro
 out, err = process.communicate()
 
 # get all the function definitions
-lines = out.split('\n')
+lines = out.decode().split('\n')
 pattern = r'^\s*(\d+)\s+[A-Z0-9]+\s+[A-Z0-9]{8}\s+([^ ]+)'
 
 library_output = 'EXPORTS \n'
